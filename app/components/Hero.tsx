@@ -81,6 +81,11 @@ export default function Hero() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
+                    onClick={() => {
+                        document
+                            .getElementById("contact-form")
+                            ?.scrollIntoView({ behavior: "smooth" });
+                    }}
                     className="w-full bg-(--brand-gold) hover:bg-(--brand-orange) py-4 rounded-xl font-semibold text-black transition cursor-pointer"
                 >
                     Get 20% Bonus on First Deposit

@@ -6,6 +6,8 @@ import {
   Headphones,
   Video,
   UserCheck,
+  BanknoteArrowDown,
+  BanknoteArrowUp
 } from "lucide-react";
 
 const features = [
@@ -20,14 +22,14 @@ const features = [
     subtitle: "24x7",
   },
   {
-    icon: Video,
-    title: "Live Webinar",
-    subtitle: "20+",
+    icon: BanknoteArrowDown,
+    title: "Withdrawal",
+    subtitle: "Fastest",
   },
   {
-    icon: UserCheck,
-    title: "Dedicated RM",
-    subtitle: "15+",
+    icon: BanknoteArrowUp,
+    title: "Deposit",
+    subtitle: "Hassel Free",
   },
 ];
 

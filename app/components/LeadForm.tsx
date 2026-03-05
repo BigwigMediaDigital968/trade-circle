@@ -41,7 +41,7 @@ const COUNTRY_OPTIONS = [
     { code: "+44", flag: "🇬🇧", label: "🇬🇧 +44" },
 ] as const;
 
-const LANGUAGE_OPTIONS = ["English", "Hindi"] as const;
+const LANGUAGE_OPTIONS = ["English", "Hindi", "Gujarati", "Telgu", "Tamil", "Kannada"] as const;
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -413,7 +413,7 @@ function RegistrationForm({ onSuccess }: RegistrationFormProps) {
                         <input
                             name="email"
                             type="email"
-                            placeholder="Email Address*"
+                            placeholder="Email Address"
                             value={formData.email}
                             onChange={handleChange}
                             required
