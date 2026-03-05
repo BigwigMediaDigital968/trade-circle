@@ -10,11 +10,6 @@ import {
 
 const features = [
   {
-    icon: Percent,
-    title: "Zero Brokerage",
-    subtitle: "0%",
-  },
-  {
     icon: TrendingUp,
     title: "Margin",
     subtitle: "500x",
@@ -42,7 +37,7 @@ export default function FeaturesSection() {
       <div className="max-w-6xl mx-auto">
         {/* Glass Container */}
         <div className="glass-card rounded-3xl p-10 md:p-14">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-10 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
             {features.map((feature, index) => {
               const Icon = feature.icon;
 

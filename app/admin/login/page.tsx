@@ -2,28 +2,24 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
   const router = useRouter();
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch("/api/admin/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include", // ✅ VERY IMPORTANT
-      body: JSON.stringify({ email, password }),
-    });
-
-    if (res.ok) {
-      console.log("Login success — redirecting...");
-
+    // Static credentials
+    if (email === "admin@gmail.com" && password === "admin@2026") {
+      setError("");
       router.push("/admin/dashboard");
     } else {
-      alert("Invalid credentials");
+      setError("Invalid email or password");
     }
   };
 
@@ -33,27 +29,47 @@ export default function AdminLogin() {
         onSubmit={handleLogin}
         className="glass-card p-10 rounded-2xl w-full max-w-md space-y-6"
       >
-        <h1 className="text-2xl font-semibold text-center">Admin Login</h1>
+        <h1 className="text-2xl font-semibold text-center">
+          Admin Login
+        </h1>
 
+        {/* Email */}
         <input
           type="email"
           placeholder="Admin Email"
-          className="w-full border border-white/20 bg-transparent p-3 rounded-lg"
+          className="w-full border border-white/20 bg-transparent p-3 rounded-lg focus:outline-none focus:border-white/40 transition"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <input
-          type="password"
-          placeholder="Password"
-          className="w-full border border-white/20 bg-transparent p-3 rounded-lg"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        {/* Password with Toggle */}
+        <div className="relative">
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            className="w-full border border-white/20 bg-transparent p-3 pr-12 rounded-lg focus:outline-none focus:border-white/40 transition"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition"
+          >
+            {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+          </button>
+        </div>
+
+        {error && (
+          <p className="text-red-400 text-sm text-center">
+            {error}
+          </p>
+        )}
 
         <button
           type="submit"
-          className="w-full gold-gradient py-3 cursor-pointer rounded-lg text-black font-semibold"
+          className="w-full gold-gradient py-3 cursor-pointer rounded-lg text-black font-semibold hover:opacity-90 transition"
         >
           Login
         </button>

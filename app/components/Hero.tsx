@@ -21,7 +21,7 @@ export default function Hero() {
                 <video
                     ref={videoRef}
                     className="absolute inset-0 w-full h-full object-cover p-8"
-                    src="/trade-circle-influencer.mp4"
+                    src="/trade-circle-influencer-video.mp4"
                     autoPlay
                     muted
                     loop
