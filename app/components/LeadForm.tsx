@@ -387,7 +387,7 @@ function RegistrationForm({ onSuccess }: RegistrationFormProps) {
     };
 
     return (
-        <section className="section-padding">
+        <section id="contact-form" className="section-padding">
             <div className="max-w-3xl mx-auto">
                 <div className="glass-card rounded-3xl border border-white/20 p-8 md:p-12">
                     <CardHeader

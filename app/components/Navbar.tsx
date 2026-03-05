@@ -12,9 +12,13 @@ export default function Navbar() {
           />
         </div>
 
-        <button className="bg-(--brand-gold) hover:bg-(--brand-orange) px-4 py-2 md:px-6 md:py-3 cursor-pointer rounded-lg font-semibold text-black transition text-sm md:text-base">
+        <a
+          href="#contact-form"
+          className="bg-(--brand-gold) hover:bg-(--brand-orange) px-4 py-2 md:px-6 md:py-3 cursor-pointer rounded-lg font-semibold text-black transition text-sm md:text-base"
+        >
           Start Now
-        </button>
+        </a>
+
 
       </div>
 

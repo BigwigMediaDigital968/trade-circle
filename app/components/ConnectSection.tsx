@@ -1,6 +1,6 @@
 "use client";
 
-import { MessageCircle, Instagram, Send, Facebook } from "lucide-react";
+import { MessageCircle, Instagram, Send, Twitter, Facebook } from "lucide-react";
 
 export default function ConnectSection() {
   return (
@@ -39,7 +39,7 @@ export default function ConnectSection() {
 
             {/* Instagram */}
             <a
-              href="#"
+              href="https://www.instagram.com/tradecircle.vip?igsh=amgxZndrc2l0Ynp0&utm_source=qr"
               className="w-12 h-12 rounded-full 
               flex items-center justify-center 
               border border-white/20 
@@ -53,7 +53,7 @@ export default function ConnectSection() {
 
             {/* Telegram */}
             <a
-              href="#"
+              href="https://x.com/CircleTrad98640"
               className="w-12 h-12 rounded-full 
               flex items-center justify-center 
               border border-white/20 
@@ -62,12 +62,12 @@ export default function ConnectSection() {
               hover:text-black 
               transition duration-300"
             >
-              <Send size={20} />
+              <Twitter size={20} />
             </a>
 
             {/* Facebook */}
             <a
-              href="#"
+              href="https://www.facebook.com/share/1E3R4FLr8T/?mibextid=wwXIfr"
               className="w-12 h-12 rounded-full 
               flex items-center justify-center 
               border border-white/20 
