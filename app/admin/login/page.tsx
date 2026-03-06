@@ -29,9 +29,12 @@ export default function AdminLogin() {
         onSubmit={handleLogin}
         className="glass-card p-10 rounded-2xl w-full max-w-md space-y-6"
       >
-        <h1 className="text-2xl font-semibold text-center">
-          Admin Login
+        <h1 className="text-3xl font-semibold text-center">
+          Trade Circle
         </h1>
+        <h2 className="text-xl font-semibold text-center">
+          Admin Login
+        </h2>
 
         {/* Email */}
         <input

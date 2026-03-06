@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 
 export default function Hero() {
     const videoRef = useRef<HTMLVideoElement>(null);
-    const [isMuted, setIsMuted] = useState(true);
+    const [isMuted, setIsMuted] = useState(false);
 
     const toggleMute = () => {
         if (videoRef.current) {
