@@ -112,7 +112,7 @@ export default function LeadsPage() {
         return () => controller.abort();
     }, []);
 
-    console.log(leads);
+    // console.log(leads);
     
     const filtered = leads.filter((lead) => {
 
@@ -190,7 +190,7 @@ export default function LeadsPage() {
 
             {/* ── Sidebar ─────────────────────────────────────────────────── */}
             <aside className="w-64 bg-black/40 backdrop-blur-md border-r border-white/10 fixed h-screen p-6 flex flex-col">
-                <h2 className="text-xl font-semibold mb-6">Kwik Trade</h2>
+                <h2 className="text-xl font-semibold mb-6">Trade Circle</h2>
 
                 <nav className="space-y-2 flex-1">
                     <Link

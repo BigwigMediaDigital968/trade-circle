@@ -413,10 +413,10 @@ function RegistrationForm({ onSuccess }: RegistrationFormProps) {
                         <input
                             name="email"
                             type="email"
-                            placeholder="Email Address"
+                            placeholder="Email Address (optional)"
                             value={formData.email}
                             onChange={handleChange}
-                            required
+                            // required
                             autoComplete="email"
                             className="w-full bg-transparent border border-white/20 rounded-lg px-4 py-3 focus:outline-none focus:border-(--brand-gold) transition"
                         />
