@@ -10,6 +10,8 @@ import {
     CheckCircle,
     Loader2,
 } from "lucide-react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -118,47 +120,137 @@ interface VerifiedScreenProps {
     fullName: string;
 }
 
+// function VerifiedScreen({ fullName }: VerifiedScreenProps) {
+//     return (
+//         <section className="section-padding">
+//             <div className="max-w-3xl mx-auto">
+//                 <div className="glass-card rounded-3xl border border-white/20 p-8 md:p-12 text-center">
+//                     <div className="flex justify-center mb-6">
+//                         <div className="w-20 h-20 rounded-full gold-gradient flex items-center justify-center">
+//                             <CheckCircle className="text-black" size={40} />
+//                         </div>
+//                     </div>
+
+//                     <h2 className="text-3xl font-bold mb-3">You're Verified!</h2>
+
+//                     <p className="text-gray-400 text-lg mb-2">
+//                         Welcome to{" "}
+//                         <span className="text-white font-semibold">Trade Circle</span>,{" "}
+//                         {fullName}!
+//                     </p>
+
+//                     <p className="text-gray-500 text-sm">
+//                         Your phone number has been verified. Your account is now active.
+//                     </p>
+
+//                     <div className="mt-8 flex justify-center gap-8 text-gray-400 text-sm">
+//                         <span className="flex items-center gap-2">
+//                             <CheckCircle size={16} /> Verified
+//                         </span>
+//                         <span className="flex items-center gap-2">
+//                             <Shield size={16} /> Secure
+//                         </span>
+//                         <span className="flex items-center gap-2">
+//                             <Zap size={16} /> Ready to Trade
+//                         </span>
+//                     </div>
+//                 </div>
+//             </div>
+//         </section>
+//     );
+// }
+
+// ─── OTP Screen ───────────────────────────────────────────────────────────────
+
+interface VerifiedScreenProps {
+    fullName: string;
+}
+
 function VerifiedScreen({ fullName }: VerifiedScreenProps) {
+
+    const router = useRouter();
+
+    // Change URL when screen loads
+    useEffect(() => {
+        router.replace("/thank-you");
+    }, [router]);
+
     return (
         <section className="section-padding">
             <div className="max-w-3xl mx-auto">
-                <div className="glass-card rounded-3xl border border-white/20 p-8 md:p-12 text-center">
+
+                <div className="glass-card rounded-3xl border border-white/20 p-10 md:p-14 text-center">
+
+                    {/* Logo */}
+                    <div className="flex justify-center mb-6">
+                        <Image
+                            src="/trade-circle-logo.png"
+                            alt="Trade Circle"
+                            width={120}
+                            height={40}
+                            className="object-contain"
+                        />
+                    </div>
+
+                    {/* Success Icon */}
                     <div className="flex justify-center mb-6">
                         <div className="w-20 h-20 rounded-full gold-gradient flex items-center justify-center">
                             <CheckCircle className="text-black" size={40} />
                         </div>
                     </div>
 
-                    <h2 className="text-3xl font-bold mb-3">You're Verified!</h2>
+                    {/* Title */}
+                    <h2 className="text-3xl font-bold mb-3">
+                        Thank You for Joining Trade Circle!
+                    </h2>
 
-                    <p className="text-gray-400 text-lg mb-2">
-                        Welcome to{" "}
-                        <span className="text-white font-semibold">Trade Circle</span>,{" "}
-                        {fullName}!
+                    {/* Welcome */}
+                    <p className="text-gray-300 text-lg mb-3">
+                        Welcome aboard <span className="text-white font-semibold">{fullName}</span> 🎉
                     </p>
 
-                    <p className="text-gray-500 text-sm">
-                        Your phone number has been verified. Your account is now active.
+                    {/* Description */}
+                    <p className="text-gray-400 text-sm max-w-xl mx-auto leading-relaxed">
+                        Your mobile number has been successfully verified and your
+                        <span className="text-white font-semibold"> Trade Circle </span>
+                        account is now active.
+                        <br /><br />
+                        You can now start exploring powerful trading tools, market insights,
+                        and opportunities designed to help you trade smarter and grow faster.
                     </p>
 
-                    <div className="mt-8 flex justify-center gap-8 text-gray-400 text-sm">
+                    {/* Trust Badges */}
+                    <div className="mt-10 flex flex-wrap justify-center gap-8 text-gray-400 text-sm">
+
                         <span className="flex items-center gap-2">
-                            <CheckCircle size={16} /> Verified
+                            <CheckCircle size={16} /> Account Verified
                         </span>
+
                         <span className="flex items-center gap-2">
-                            <Shield size={16} /> Secure
+                            <Shield size={16} /> Secure Platform
                         </span>
+
                         <span className="flex items-center gap-2">
                             <Zap size={16} /> Ready to Trade
                         </span>
+
                     </div>
+
+                    {/* CTA */}
+                    <div className="mt-10">
+                        <button
+                            onClick={() => router.push("/dashboard")}
+                            className="gold-gradient text-black px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition"
+                        >
+                            Go to Dashboard
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </section>
     );
 }
-
-// ─── OTP Screen ───────────────────────────────────────────────────────────────
 
 interface OtpScreenProps {
     phone: string;
@@ -239,6 +331,7 @@ function OtpScreen({ phone, countryCode, onVerified, onBack }: OtpScreenProps) {
         <section className="section-padding">
             <div className="max-w-3xl mx-auto">
                 <div className="glass-card rounded-3xl border border-white/20 p-8 md:p-12">
+                <h2 className="text-white">Thank You For the Registration</h2>
                     <CardHeader
                         title="Verify Your Number"
                         subtitle={`OTP sent to ${countryCode} ${phone}`}
