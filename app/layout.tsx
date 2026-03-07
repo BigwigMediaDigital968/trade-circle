@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,21 +15,37 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Trade Circle - Your Ultimate Trading Companion",
-  description: "Trade Circle provides real-time trading signals, smart strategies, and powerful tools to help you turn market moves into profitable trades. Join now and get a 20% bonus on your first deposit!",
+  description:
+    "Trade Circle provides real-time trading signals, smart strategies, and powerful tools to help you turn market moves into profitable trades. Join now and get a 20% bonus on your first deposit!",
   icons: {
     icon: "/trade-circle-logo.png",
   },
-
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body className="bg-(--brand-dark) text-white relative">
+
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-GSM4YXBCJ5"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-GSM4YXBCJ5');
+          `}
+        </Script>
+
         <main className="w-full md:w-[70%] mx-auto">
           {children}
         </main>
